@@ -1,0 +1,8 @@
+app:
+  id: demo_service
+
+http:
+  service:
+    port: 8088
+  metrics:
+    port: 8081

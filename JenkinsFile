@@ -35,18 +35,13 @@ pipeline {
         }
         stage('Terraform init') {
             steps {
-                withCredentials([<object of type com.cloudbees.jenkins.plugins.awscredentials.AmazonWebServicesCredentialsBinding>]) {
                     sh 'cd terraform'
-                    sh 'terraform init'
-                }
-                
+                    sh 'terraform init'                
             }
         }
         stage('Terraform apply') {
             steps {
-                withCredentials([<object of type com.cloudbees.jenkins.plugins.awscredentials.AmazonWebServicesCredentialsBinding>]) {
                     sh 'terraform apply --auto-approve'
-                }
             }
         }
     }

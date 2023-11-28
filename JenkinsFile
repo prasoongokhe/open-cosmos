@@ -35,8 +35,8 @@ pipeline {
         }
         stage('Terraform init') {
             steps {
-                    sh 'cd terraform'
-                    sh 'terraform init'                
+                    sh 'pwd;cd terraform/ ; terraform init'
+                    sh "pwd;cd terraform/ ; terraform plan -out tfplan"              
             }
         }
         stage('Terraform apply') {

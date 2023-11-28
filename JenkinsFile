@@ -15,7 +15,9 @@ pipeline {
     stages {
         stage('Git') {
             steps {
-                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: '19a320e9-4b86-448d-a0f0-df3679dd6f83', url: 'https://github.com/prasoongokhe/open-cosmos.git']])            }
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: '19a320e9-4b86-448d-a0f0-df3679dd6f83', url: 'https://github.com/prasoongokhe/open-cosmos.git']])            
+                sh 'pwd; ls'
+            }
         }
         stage('Build Docker Image'){
             steps{

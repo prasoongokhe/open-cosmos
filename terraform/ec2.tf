@@ -9,4 +9,18 @@ resource "aws_instance" "oc-ec2" {
    tags = {
     Name = var.instance_name
    }
+
+   provisioner "remote-exec" {
+    inline = ["echo 'Wait until SSH is ready'"]
+
+    connection {
+      type        = "ssh"
+      user        = local.ssh_user
+      private_key = var.key_name
+      host        = aws_instance.oc-ec2.public_ip
+    }
+  }
+  provisioner "local-exec" {
+    command = "ansible-playbook  -i ${aws_instance.oc-ec2.public_ip}, --private-key ${var.key_name} ../ansible/minikube-playboo.yaml"
+  }
 }

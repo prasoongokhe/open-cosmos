@@ -35,6 +35,11 @@ pipeline {
                 }
             }
         }
+        stage('Terraform destroy') {
+            steps {
+                    sh 'pwd;cd terraform/ ;terraform destroy --auto-approve'
+            }
+        }
         stage('Terraform init') {
             steps {
                     sh 'pwd;cd terraform/ ; terraform init'

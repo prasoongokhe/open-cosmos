@@ -5,4 +5,8 @@ resource "aws_instance" "oc-ec2" {
    // security_groups = ["rtp03-sg"]
    vpc_security_group_ids = ["${aws_security_group.oc-sg.id}"]
    subnet_id = "${aws_subnet.oc-subnet-01.id}"
+
+   tag = {
+    Name = var.instance_name
+   }
 }

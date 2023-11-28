@@ -10,6 +10,11 @@ variable "key_name" {
     default = "prasoon-test-ec2-1"
 }
 
+variable "instance_name" {
+   type        = string
+   default     = "oc-demo"
+}
+
 variable "vpc_cidr" {
     default = "10.1.0.0/16"
 }

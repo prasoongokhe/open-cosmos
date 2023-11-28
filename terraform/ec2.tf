@@ -15,7 +15,7 @@ resource "aws_instance" "oc-ec2" {
 
     connection {
       type        = "ssh"
-      user        = local.ssh_user
+      user        = "ubuntu"
       private_key = var.key_name
       host        = aws_instance.oc-ec2.public_ip
     }
